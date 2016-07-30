@@ -1,0 +1,16 @@
+<md-content class="mdtTable md-whiteframe-z1" layout="column">
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+            <tr class="theadTrRow">
+                <th class="column" *ngFor="let column of columns">
+                    {{column.name}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tbodyTrRow" *ngFor="let row of rows">
+                <td class="column" style="position:relative;" *ngFor="let column of columns">{{row[column.dataKey]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</md-content>
