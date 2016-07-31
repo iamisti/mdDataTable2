@@ -1,8 +1,8 @@
-import {IColumn} from "../components/IColumn";
-import {IRow} from "../components/IRow";
-import {ICell} from "../components/ICell";
+import {IColumn} from "../interfaces/IColumn";
+import {IRow} from "../interfaces/IRow";
+import {ICell} from "../interfaces/ICell";
 import * as _ from "lodash";
-import {AlignRule} from "../components/AlignRule";
+import {AlignRule} from "../enums/AlignRule";
 
 export class DataService{
     private columns: Array<IColumn>;

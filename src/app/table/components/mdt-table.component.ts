@@ -1,15 +1,15 @@
 import {Component, Input} from "@angular/core";
 import {DataService} from "../services/DataService";
-import {MdtRows} from "./mdt-rows.directive";
+import {MdtRows} from "./mdt-rows.component";
 import {MdIcon, MdIconRegistry} from "@angular2-material/icon";
-import {MdtColumns} from "./mdt-columns.directive";
-export {AlignRule} from './AlignRule';
+import {MdtColumns} from "./mdt-columns.component";
+export {AlignRule} from '../enums/AlignRule';
 
 @Component({
     moduleId: module.id,
     selector: 'mdt-table',
-    styleUrls: ['main.css'],
-    templateUrl: 'mdt-table.html',
+    styleUrls: ['../main.css'],
+    templateUrl: '../views/mdt-table.html',
     providers: [DataService, MdIconRegistry],
     directives: [MdIcon, MdtRows, MdtColumns]
 })

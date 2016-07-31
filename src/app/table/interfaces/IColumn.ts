@@ -1,4 +1,4 @@
-import {AlignRule} from "./AlignRule";
+import {AlignRule} from "../enums/AlignRule";
 
 export interface IColumn{
     dataKey: string;

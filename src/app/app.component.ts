@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdtTable, AlignRule} from "./components/mdt-table.directive";
+import {MdtTable, AlignRule} from "./table/components/mdt-table.component";
 
 @Component({
     moduleId: module.id,

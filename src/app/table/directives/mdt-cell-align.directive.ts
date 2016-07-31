@@ -1,6 +1,6 @@
 import {Input, Directive, ElementRef} from "@angular/core";
-import {IColumn} from "./IColumn";
-import {AlignRule} from "./AlignRule";
+import {IColumn} from "../interfaces/IColumn";
+import {AlignRule} from "../enums/AlignRule";
 
 @Directive({
     selector: '[mdt-cell-align]'
