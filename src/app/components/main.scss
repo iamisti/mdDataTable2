@@ -1,5 +1,10 @@
-.mdtTable{
+
+  .md-whiteframe-z1{
+      background: #ffffff;
+  }
+
   table{
+    font-size: 15px;
     width:100%;
 
     &:focus{
@@ -7,7 +12,6 @@
     }
   }
   td, th{ padding: 0; margin: 0; }
-  font-size: 15px;
 
   $whiteColor: #ffffff;
   $primaryColorPalette: #0D47A1;
@@ -154,11 +158,11 @@
   }
 
   td:first-child, th:first-child{
-    padding: 0 0 0 24px;
+    padding: 0 0 0 24px !important;
   }
 
   td:last-child, th:last-child{
-    padding-right: 24px;
+    padding-right: 24px !important;
   }
 
   .column{
@@ -209,4 +213,3 @@
   .virtualRepeatEnabled .originalHeader md-checkbox{
     display: none;
   }
-}

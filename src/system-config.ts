@@ -9,11 +9,22 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material',
+  'lodash': 'vendor/lodash/lodash.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
 };
+
+const materialPkgs:string[] = [
+  'core',
+  'icon'
+];
+
+materialPkgs.forEach((pkg) => {
+  packages[`@angular2-material/${pkg}`] = {main: `${pkg}.js`};
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************

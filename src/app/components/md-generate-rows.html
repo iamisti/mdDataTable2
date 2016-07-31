@@ -1,0 +1,8 @@
+<tr class="tbodyTrRow" *ngFor="let aRow of dataService.getRows()">
+    <td class="column"
+        *ngFor="let aColumn of dataService.getColumns()"
+        [className]="(aColumn.align == 'left' ? 'leftAlignedColumn' : 'rightAlignedColumn')">
+
+        {{dataService.getCellData(aColumn, aRow).value}}
+    </td>
+</tr>

@@ -1,8 +1,11 @@
+import {ICell} from "./ICell";
+
 export interface IRow{
-    rowId: string;
+    rowId?: any;
+    index: number,
     //selected: boolean;
     //deleted: boolean;
     //visible: boolean;
-    value: any;
+    value: Array<ICell>;
     //rawValue: any;
 }

@@ -5,7 +5,6 @@ import {MdDataTable} from './components/md-data-table.directive';
     moduleId: module.id,
     selector: 'app-root',
     templateUrl: 'app.component.html',
-    styleUrls: ['app.component.css'],
     directives: [MdDataTable]
 })
 export class AppComponent {
@@ -13,35 +12,41 @@ export class AppComponent {
     columnList:Array<any>;
 
     constructor() {
-
         this.columnList = [
             {
                 dataKey: 'name',
-                name: 'Dessert (100g serving)'
+                name: 'Dessert (100g serving)',
+                align: 'left'
             },{
                 dataKey: 'calories',
-                name: 'Calories'
+                name: 'Calories',
+                align: 'right'
             },{
                 dataKey: 'fat',
-                name: 'Fat (g)'
+                name: 'Fat (g)',
+                align: 'right'
             },{
                 dataKey: 'carbs',
-                name: 'Carbs (g)'
+                name: 'Carbs (g)',
+                align: 'right'
             },{
                 dataKey: 'protein',
-                name: 'Protein (g)'
+                name: 'Protein (g)',
+                align: 'right'
             },{
                 dataKey: 'sodium',
-                name: 'Sodium (g)'
+                name: 'Sodium (g)',
+                align: 'right'
             },{
                 dataKey: 'calcium',
-                name: 'Calcium (%)'
+                name: 'Calcium (%)',
+                align: 'right'
             },{
                 dataKey: 'iron',
-                name: 'Iron (%)'
+                name: 'Iron (%)',
+                align: 'right'
             },
         ];
-
         this.rowList = [
             {
                 id: 601,

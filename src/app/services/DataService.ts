@@ -1,5 +1,7 @@
 import {IColumn} from "../components/IColumn";
 import {IRow} from "../components/IRow";
+import {ICell} from "../components/ICell";
+import * as _ from "lodash";
 
 export class DataService{
     private columns: Array<IColumn>;
@@ -10,11 +12,45 @@ export class DataService{
         this.rows = [];
     }
 
-    addColumns(column:Array<IColumn>){
-        this.columns = column;
+    addColumns(columns:Array<IColumn>){
+        _.each(columns, (aColumn) => {
+            this.columns.push({
+                dataKey: aColumn.dataKey,
+                name: aColumn.name,
+                align: aColumn.align
+            });
+        });
     }
 
     addRows(rows:Array<any>){
-        this.rows = rows;
+        _.each(rows, (aRow:any, rowIndex:number) => {
+            var newRow: Array<ICell> = [];
+
+            _.each(this.columns, (aColumn:IColumn, colIndex:number) => {
+                newRow.push({
+                    dataKey: aColumn.dataKey,
+                    value: aRow[aColumn.dataKey]
+                });
+            });
+
+            this.rows.push({
+                index: rowIndex,
+                value: newRow
+            });
+        });
+    }
+
+    getCellData(column:IColumn, row:IRow){
+        return _.find(this.rows[row.index].value, (aCell:ICell) => {
+            return aCell.dataKey === column.dataKey
+        });
+    }
+
+    getColumns(){
+        return this.columns;
+    }
+
+    getRows(){
+        return this.rows;
     }
 }
