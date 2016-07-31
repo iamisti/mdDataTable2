@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdtTable} from "./components/mdt-table.directive";
+import {MdtTable, AlignRule} from "./components/mdt-table.directive";
 
 @Component({
     moduleId: module.id,
@@ -16,35 +16,35 @@ export class AppComponent {
             {
                 dataKey: 'name',
                 name: 'Dessert (100g serving)',
-                align: 'left'
+                align: AlignRule.Left
             },{
                 dataKey: 'calories',
                 name: 'Calories',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'fat',
                 name: 'Fat (g)',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'carbs',
                 name: 'Carbs (g)',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'protein',
                 name: 'Protein (g)',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'sodium',
                 name: 'Sodium (g)',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'calcium',
                 name: 'Calcium (%)',
-                align: 'right'
+                align: AlignRule.Right
             },{
                 dataKey: 'iron',
                 name: 'Iron (%)',
-                align: 'right'
+                align: AlignRule.Right
             },
         ];
         this.rowList = [

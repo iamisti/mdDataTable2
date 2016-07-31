@@ -4,12 +4,12 @@ import {MdtCellAlign} from "./mdt-cell-align.directive";
 
 @Component({
     moduleId: module.id,
-    selector: '[mdt-rows]',
-    templateUrl: 'mdt-rows.html',
+    selector: '[mdt-columns]',
+    templateUrl: 'mdt-columns.html',
     styleUrls: ['main.css'],
     directives: [MdtCellAlign]
 })
-export class MdtRows{
+export class MdtColumns{
     constructor(public dataService: DataService){
 
     }

@@ -2,6 +2,7 @@ import {IColumn} from "../components/IColumn";
 import {IRow} from "../components/IRow";
 import {ICell} from "../components/ICell";
 import * as _ from "lodash";
+import {AlignRule} from "../components/AlignRule";
 
 export class DataService{
     private columns: Array<IColumn>;
@@ -17,7 +18,7 @@ export class DataService{
             this.columns.push({
                 dataKey: aColumn.dataKey,
                 name: aColumn.name,
-                align: aColumn.align
+                align: aColumn.align || AlignRule.Left
             });
         });
     }
