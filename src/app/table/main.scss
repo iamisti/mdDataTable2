@@ -213,3 +213,35 @@
   .virtualRepeatEnabled .originalHeader md-checkbox{
     display: none;
   }
+
+  /**
+   * Flexbox polifyls
+   *
+   **/
+
+  /*layout="row"*/
+  .layout-row{
+      display:flex;
+      flex-direction:row
+  }
+
+  .layout-column{
+    display:flex;
+    flex-direction:column
+  }
+
+  /*layout-align="center"*/
+  .layout-align-center{
+      align-items: center;
+  }
+
+  /*layout-align="start"*/
+  .layout-align-start{
+      justify-content: start;
+  }
+
+  /*layout-align="start"*/
+  .layout-align-start-center{
+    justify-content: start;
+    align-items: center;
+  }
