@@ -3,12 +3,15 @@ import {IRow} from "../interfaces/IRow";
 import {ICell} from "../interfaces/ICell";
 import * as _ from "lodash";
 import {AlignRule} from "../enums/AlignRule";
+import {Injectable} from "@angular/core";
+import {ArrayPaginationService} from "./ArrayPaginationService";
 
+@Injectable()
 export class DataService{
     private columns: Array<IColumn>;
     private rows: Array<IRow>;
 
-    constructor(){
+    constructor(private arrayPaginationService: ArrayPaginationService){
         this.columns = [];
         this.rows = [];
     }
@@ -27,7 +30,7 @@ export class DataService{
         _.each(rows, (aRow:any, rowIndex:number) => {
             var newRow: Array<ICell> = [];
 
-            _.each(this.columns, (aColumn:IColumn, colIndex:number) => {
+            _.each(this.columns, (aColumn:IColumn) => {
                 newRow.push({
                     dataKey: aColumn.dataKey,
                     value: aRow[aColumn.dataKey]
@@ -42,7 +45,7 @@ export class DataService{
     }
 
     getCellData(column:IColumn, row:IRow){
-        return _.find(this.rows[row.index].value, (aCell:ICell) => {
+        return _.find(row.value, (aCell:ICell) => {
             return aCell.dataKey === column.dataKey
         });
     }
@@ -51,7 +54,15 @@ export class DataService{
         return this.columns;
     }
 
-    getRows(){
-        return this.rows;
+    getRows(start:number = 0, numberOfItems?:number): Array<IRow>{
+        //transforming rows if we need sorting.
+        this.rows = this.arrayPaginationService.transformRows(this.rows);
+
+        //when no pagination is there
+        if(numberOfItems === undefined){
+            return this.rows;
+        }
+
+        return _.slice(this.rows, start, numberOfItems);
     }
 }

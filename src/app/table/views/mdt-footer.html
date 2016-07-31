@@ -1,0 +1,28 @@
+<div class="mdt-footer layout-row">
+    <div class="mdt-pagination layout-align-end-center layout-row flex">
+        <span class="layout-margin">Rows per page:</span>
+
+
+            <select>
+                <option value="{{pageSize}}"
+                        *ngFor="let pageSize of tableFooter.pagination.rowsPerPage">
+                    {{pageSize}}
+                </option>
+            </select>
+
+
+        <span layout-margin>
+            <!--
+            {{mdtPaginationHelper.getStartRowIndex()+1}}-{{mdtPaginationHelper.getEndRowIndex()+1}} of {{mdtPaginationHelper.getTotalRowsCount()}}
+            -->
+        </span>
+
+        <md-button class="md-icon-button md-primary" aria-label="Previous page" ng-click="">
+            <ng-md-icon icon="keyboard_arrow_left" size="24"></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary" aria-label="Next page" ng-click="">
+            <ng-md-icon icon="keyboard_arrow_right" size="24"></ng-md-icon>
+        </md-button>
+    </div>
+</div>

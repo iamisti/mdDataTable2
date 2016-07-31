@@ -3,11 +3,11 @@ import {ITableHeader} from "../interfaces/ITableHeader";
 
 @Component({
     moduleId: module.id,
-    selector: 'mdt-table-header',
-    templateUrl: '../views/mdt-table-header.html',
+    selector: 'mdt-header',
+    templateUrl: '../views/mdt-header.html',
     styleUrls: ['../main.css']
 })
-export class MdtTableHeader {
+export class MdtHeader {
     @Input('table-header')
     tableHeader: ITableHeader;
 

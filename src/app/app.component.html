@@ -1,7 +1,8 @@
 <mdt-table
-        [table-header]="{
-            title: 'Nutrition list'
-            }"
         [columns]="columnList"
-        [rows]="rowList">
+        [rows]="rowList"
+
+        [table-header]="{ title: 'Nutrition list' }"
+        [pagination]="{ rowsPerPage: [5, 10, 20, 100], defaultRowsPerPage: 10 }"
+>
 </mdt-table>

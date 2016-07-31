@@ -1,7 +1,8 @@
 <tr class="theadTrRow">
     <th class="column"
         *ngFor="let aColumn of dataService.getColumns()"
-        [mdt-cell-align]="aColumn">
+        [mdt-cell-align]="aColumn"
+        (click)="setColumnOrder(aColumn)">
 
         {{aColumn.name}}
     </th>
