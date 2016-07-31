@@ -3,11 +3,11 @@ import {DataService} from "../services/DataService";
 
 @Component({
     moduleId: module.id,
-    selector: '[md-generate-rows]',
-    templateUrl: 'md-generate-rows.html',
+    selector: '[mdt-rows]',
+    templateUrl: 'mdt-rows.html',
     styleUrls: ['main.css']
 })
-export class MdtGenerateRows{
+export class MdtRows{
     constructor(public dataService: DataService){
 
     }

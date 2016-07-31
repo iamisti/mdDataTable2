@@ -1,17 +1,17 @@
 import {Component, Input} from "@angular/core";
 import {DataService} from "../services/DataService";
-import {MdtGenerateRows} from "./md-generate-rows.directive";
+import {MdtRows} from "./mdt-rows.directive";
 import {MdIcon, MdIconRegistry} from "@angular2-material/icon";
 
 @Component({
     moduleId: module.id,
-    selector: 'md-data-table',
+    selector: 'mdt-table',
     styleUrls: ['main.css'],
-    templateUrl: 'md-data-table.html',
+    templateUrl: 'mdt-table.html',
     providers: [DataService, MdIconRegistry],
-    directives: [MdIcon, MdtGenerateRows]
+    directives: [MdIcon, MdtRows]
 })
-export class MdDataTable{
+export class MdtTable{
     @Input('columns') columns: any;
     @Input('rows') rows: any;
 

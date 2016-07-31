@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {MdDataTable} from './components/md-data-table.directive';
+import {MdtTable} from "./components/mdt-table.directive";
 
 @Component({
     moduleId: module.id,
     selector: 'app-root',
     templateUrl: 'app.component.html',
-    directives: [MdDataTable]
+    directives: [MdtTable]
 })
 export class AppComponent {
     rowList:Array<any>;
