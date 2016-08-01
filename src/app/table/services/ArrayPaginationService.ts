@@ -59,23 +59,4 @@ export class ArrayPaginationService implements IPaginationService{
 
         return this.page < totalPages;
     }
-/*
-this should be in sortservice
-    transformRows(rows: Array<IRow>):Array<IRow> {
-        if(this.sortColumn === undefined){
-            return rows;
-        }
-
-        var that = this;
-        let res =  _.sortBy(rows, function(aRow:IRow){
-            let index = _.findIndex(aRow.value, (cell:ICell) => {
-                return cell.dataKey == that.sortColumn.dataKey;
-            });
-
-            return aRow.value[index].value;
-        });
-
-        return res;
-    }
-*/
 }

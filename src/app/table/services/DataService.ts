@@ -5,13 +5,16 @@ import * as _ from "lodash";
 import {AlignRule} from "../enums/AlignRule";
 import {Injectable} from "@angular/core";
 import {ArrayPaginationService} from "./ArrayPaginationService";
+import {SortService} from "./SortService";
 
 @Injectable()
 export class DataService{
     private columns: Array<IColumn>;
     private rows: Array<IRow>;
 
-    constructor(private arrayPaginationService: ArrayPaginationService){
+    constructor(private arrayPaginationService: ArrayPaginationService,
+                private sortService: SortService){
+
         this.columns = [];
         this.rows = [];
     }
@@ -55,18 +58,12 @@ export class DataService{
     }
 
     getRows(): Array<IRow>{
-        //transforming rows if we need sorting.
-        //this.rows = this.arrayPaginationService.transformRows(this.rows);
+        //sorting rows
+        let rows = this.sortService.transformRows(this.rows);
 
-        //when no pagination is there
-        //if(numberOfItems === undefined){
-        //    return this.rows;
-        //}
+        //paginating rows
+        rows = this.arrayPaginationService.transformRows(rows);
 
-        //return _.slice(this.rows, start, numberOfItems);
-
-        let paginatedRows = this.arrayPaginationService.transformRows(this.rows);
-
-        return paginatedRows;
+        return rows;
     }
 }

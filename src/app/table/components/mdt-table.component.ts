@@ -9,6 +9,7 @@ import {IPagination} from "../interfaces/IPagination";
 import {MdtFooter} from "./mdt-footer.component";
 import {ITableFooter} from "../interfaces/ITableFooter";
 import {ArrayPaginationService} from "../services/ArrayPaginationService";
+import {SortService} from "../services/SortService";
 export {AlignRule} from '../enums/AlignRule';
 
 @Component({
@@ -16,7 +17,7 @@ export {AlignRule} from '../enums/AlignRule';
     selector: 'mdt-table',
     styleUrls: ['../main.css'],
     templateUrl: '../views/mdt-table.html',
-    providers: [DataService, ArrayPaginationService, MdIconRegistry],
+    providers: [DataService, ArrayPaginationService, MdIconRegistry, SortService],
     directives: [MdIcon, MdtRows, MdtColumns, MdtHeader, MdtFooter]
 })
 export class MdtTable{

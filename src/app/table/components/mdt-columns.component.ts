@@ -3,6 +3,7 @@ import {DataService} from "../services/DataService";
 import {MdtCellAlign} from "../directives/mdt-cell-align.directive";
 import {ArrayPaginationService} from "../services/ArrayPaginationService";
 import {IColumn} from "../interfaces/IColumn";
+import {SortService} from "../services/SortService";
 
 @Component({
     moduleId: module.id,
@@ -12,11 +13,13 @@ import {IColumn} from "../interfaces/IColumn";
     directives: [MdtCellAlign]
 })
 export class MdtColumns{
-    constructor(public dataService: DataService, public arrayPaginationService: ArrayPaginationService){
+    constructor(public dataService: DataService,
+                public arrayPaginationService: ArrayPaginationService,
+                public sortService: SortService){
 
     }
 
     setColumnOrder(aColumn:IColumn){
-        this.arrayPaginationService.sortColumn = aColumn;
+        this.sortService.setColumnToSort(aColumn);
     }
 }
