@@ -13,6 +13,7 @@ import {SortService} from "../services/SortService";
     directives: [MdtCellAlign]
 })
 export class MdtColumns{
+
     constructor(public dataService: DataService,
                 public arrayPaginationService: ArrayPaginationService,
                 public sortService: SortService){

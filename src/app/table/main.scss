@@ -43,6 +43,9 @@
       cursor: pointer;
     }
 
+    /**
+     * Sort icons for columns
+     **/
     &:hover{
       .mdt-sort-icon{
         visibility: visible;
@@ -50,16 +53,13 @@
     }
 
     .mdt-sort-icon{
-        visibility: hidden;
+      visibility: hidden;
+      position:relative;
+      top: 4px;
+      color: darken($whiteColor, 30%);
     }
 
-    .mdt-sort-icon-inactive, .mdt-sort-icon-active{
-        position:relative;
-        top: 4px;
-    }
-
-    .mdt-sort-icon-inactive{ color: darken($whiteColor, 30%); }
-    .mdt-sort-icon-active{ color: darken($whiteColor, 87%); }
+    .mdt-sort-icon-active{ color: darken($whiteColor, 87%); visibility: visible; }
 
     /* when hoverSortIcons on a non-sorted column*/
     /*
