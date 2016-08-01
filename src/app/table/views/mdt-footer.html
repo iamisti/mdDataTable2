@@ -1,28 +1,31 @@
-<div class="mdt-footer layout-row">
+<div class="mdt-footer layout-row" *ngIf="isEnabled()">
     <div class="mdt-pagination layout-align-end-center layout-row flex">
-        <span class="layout-margin">Rows per page:</span>
+        <span class="layout-margin" style="margin-right:40px;">Rows per page:</span>
 
+        <select [ngModel]="tableFooter.pagination.defaultRowsPerPage"
+                (input)="setPageSize($event.target.value)">
+                    <option *ngFor="let pageSize of tableFooter.pagination.rowsPerPage"
+                            value="{{pageSize}}">
+                        {{pageSize}}
+                    </option>
+        </select>
 
-            <select>
-                <option value="{{pageSize}}"
-                        *ngFor="let pageSize of tableFooter.pagination.rowsPerPage">
-                    {{pageSize}}
-                </option>
-            </select>
-
-
-        <span layout-margin>
-            <!--
-            {{mdtPaginationHelper.getStartRowIndex()+1}}-{{mdtPaginationHelper.getEndRowIndex()+1}} of {{mdtPaginationHelper.getTotalRowsCount()}}
-            -->
+        <span class="layout-margin" style="margin-right:32px;margin-left:32px;">
+            {{arrayPaginationService.getStartIndex()+1}} - {{arrayPaginationService.getStartIndex() + arrayPaginationService.itemsPerPage}}
+            of {{arrayPaginationService.totalRowsCount}}
         </span>
 
-        <md-button class="md-icon-button md-primary" aria-label="Previous page" ng-click="">
-            <ng-md-icon icon="keyboard_arrow_left" size="24"></ng-md-icon>
-        </md-button>
+        <!-- todo: use md-icon -->
+        <div style="margin-right:14px;">
+            <i class="material-icons"
+               style="margin-right:24px;cursor: pointer;"
+               [ngClass]="isPreviousButtonDisabled()"
+               (click)="previousPage()">keyboard_arrow_left</i>
 
-        <md-button class="md-icon-button md-primary" aria-label="Next page" ng-click="">
-            <ng-md-icon icon="keyboard_arrow_right" size="24"></ng-md-icon>
-        </md-button>
+            <i class="material-icons"
+               style="cursor:pointer;"
+               (click)="nextPage()"
+               [ngClass]="isNextButtonDisabled()">keyboard_arrow_right</i>
+        </div>
     </div>
 </div>

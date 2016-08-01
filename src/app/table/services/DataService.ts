@@ -54,15 +54,19 @@ export class DataService{
         return this.columns;
     }
 
-    getRows(start:number = 0, numberOfItems?:number): Array<IRow>{
+    getRows(): Array<IRow>{
         //transforming rows if we need sorting.
-        this.rows = this.arrayPaginationService.transformRows(this.rows);
+        //this.rows = this.arrayPaginationService.transformRows(this.rows);
 
         //when no pagination is there
-        if(numberOfItems === undefined){
-            return this.rows;
-        }
+        //if(numberOfItems === undefined){
+        //    return this.rows;
+        //}
 
-        return _.slice(this.rows, start, numberOfItems);
+        //return _.slice(this.rows, start, numberOfItems);
+
+        let paginatedRows = this.arrayPaginationService.transformRows(this.rows);
+
+        return paginatedRows;
     }
 }

@@ -37,6 +37,6 @@ export class MdtTable{
 
         this.tableFooter = {
             pagination: this.pagination || <IPagination>{}
-        }
+        };
     }
 }

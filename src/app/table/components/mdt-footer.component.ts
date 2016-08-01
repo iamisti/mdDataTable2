@@ -1,5 +1,6 @@
 import {Component, Input} from "@angular/core";
 import {ITableFooter} from "../interfaces/ITableFooter";
+import {ArrayPaginationService} from "../services/ArrayPaginationService";
 @Component({
     moduleId: module.id,
     selector: 'mdt-footer',
@@ -10,18 +11,50 @@ export class MdtFooter{
     @Input('table-footer')
     tableFooter: ITableFooter;
 
+    constructor(private arrayPaginationService: ArrayPaginationService){
+
+    }
+
     ngOnInit(){
-        console.log(this.tableFooter)
         this.tableFooter.pagination.rowsPerPage =  this.tableFooter.pagination.rowsPerPage || [];
 
-        //if default value is not set then select the first value as default
-        if(this.tableFooter.pagination.rowsPerPage.length > 0
-            && !this.tableFooter.pagination.defaultRowsPerPage){
-                this.tableFooter.pagination.defaultRowsPerPage = this.tableFooter.pagination.rowsPerPage[0];
+        if(this.isEnabled()){
+            this.tableFooter.pagination.defaultRowsPerPage = this.tableFooter.pagination.defaultRowsPerPage
+                                                                || this.tableFooter.pagination.rowsPerPage[0];
+
+            this.arrayPaginationService.setItemsPerPage(this.tableFooter.pagination.defaultRowsPerPage);
         }
     }
 
     isEnabled(){
-        return this.tableFooter.pagination.rowsPerPage.length > 0 ? true : false;
+        return this.tableFooter.pagination.rowsPerPage.length > 0;
+    }
+
+    setPageSize(pageSize:number){
+        this.arrayPaginationService.setItemsPerPage(pageSize);
+    }
+
+    nextPage(){
+        this.arrayPaginationService.nextPage();
+    }
+
+    previousPage(){
+        this.arrayPaginationService.previousPage();
+    }
+
+    isPreviousButtonDisabled(): string {
+        if(this.arrayPaginationService.hasPreviousPage() == false){
+            return 'md-dark md-inactive';
+        }
+
+        return '';
+    }
+
+    isNextButtonDisabled(): string {
+        if(this.arrayPaginationService.hasNextPage() == false){
+            return 'md-dark md-inactive';
+        }
+
+        return '';
     }
 }
