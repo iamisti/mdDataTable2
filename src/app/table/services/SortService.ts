@@ -6,13 +6,14 @@ import * as _ from "lodash";
 export class SortService {
 
     private columnToSort: IColumn;
+    private isEnabled: boolean;
 
     setColumnToSort(column: IColumn) :void{
         this.columnToSort = column;
     }
 
     transformRows(rows: Array<IRow>):Array<IRow> {
-        if(this.columnToSort === undefined){
+        if(this.isSortingEnabled() == false || this.isSortingNeeded() == false){
             return rows;
         }
 
@@ -26,5 +27,17 @@ export class SortService {
         });
 
         return res;
+    }
+
+    isSortingNeeded(){
+        return this.columnToSort != undefined;
+    }
+
+    isSortingEnabled(){
+        return this.isEnabled;
+    }
+
+    setSortingEnabled(isEnabled: boolean): void{
+        this.isEnabled = isEnabled ? true : false;
     }
 }

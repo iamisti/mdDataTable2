@@ -17,7 +17,7 @@
   $primaryColorPalette: #0D47A1;
 
   /* 12sp Roboto Medium, 54% black */
-  th{
+  th {
     font-size: 12px;
     font-weight: 500;
     color: darken($whiteColor, 54%);
@@ -25,73 +25,97 @@
     /* prevent ink ripple bleeding */
     position: relative;
 
-    &.clickable{
+    &.clickable {
       cursor: pointer;
     }
 
     /* no pointer cursor when disabled, could be not-allowed but i think that indication is to strong */
-    &[disabled]{
+    &[disabled] {
       cursor: auto;
     }
 
     /* remove the default blue outline in Chrome for consistent button-like behaviour */
-    &:focus{
+    &:focus {
       outline: none;
     }
 
+    &.sortable-column{
+      cursor: pointer;
+    }
+
+    &:hover{
+      .mdt-sort-icon{
+        visibility: visible;
+      }
+    }
+
+    .mdt-sort-icon{
+        visibility: hidden;
+    }
+
+    .mdt-sort-icon-inactive, .mdt-sort-icon-active{
+        position:relative;
+        top: 4px;
+    }
+
+    .mdt-sort-icon-inactive{ color: darken($whiteColor, 30%); }
+    .mdt-sort-icon-active{ color: darken($whiteColor, 87%); }
+
     /* when hoverSortIcons on a non-sorted column*/
-    .hoverSortIcons ng-md-icon{
-      visibility: hidden;
-      width: 16px;
-      height: 16px;
-      fill: darken($whiteColor, 30%);
+    /*
+                    .hoverSortIcons ng-md-icon{
+                      visibility: hidden;
+                      width: 16px;
+                      height: 16px;
+                      fill: darken($whiteColor, 30%);
 
-      svg{
-        -webkit-transform:rotate(90deg);
-        transform:rotate(90deg);
-      }
-    }
+                      svg{
+                        -webkit-transform:rotate(90deg);
+                        transform:rotate(90deg);
+                      }
+                    }
 
-    &:hover .hoverSortIcons ng-md-icon{
-      visibility: visible;
-    }
+                    &:hover .hoverSortIcons ng-md-icon{
+                      visibility: visible;
+                    }
 
-    .sortedColumn{
-      /* when hoverSortIcons on a sorted column*/
-      .hoverSortIcons ng-md-icon{
-        display:none;
-      }
+                    .sortedColumn{
+                      /* when hoverSortIcons on a sorted column*
+                      .hoverSortIcons ng-md-icon{
+                        display:none;
+                      }
 
-      ng-md-icon{
-        /* specified 16px is a fix now cause angular materia generates a 24x24 icon even the passed value is 16  */
-        width: 16px;
-        height: 16px;
+                      ng-md-icon{
+                        /* specified 16px is a fix now cause angular materia generates a 24x24 icon even the passed value is 16  *
+                        width: 16px;
+                        height: 16px;
 
-        fill: darken($whiteColor, 87%);
+                        fill: darken($whiteColor, 87%);
 
-        /* sort icon rotated 90 degrees for ascending sort (default) */
-        svg{
-          -webkit-transform:rotate(90deg);
-          transform:rotate(90deg);
-        }
+                        /* sort icon rotated 90 degrees for ascending sort (default) *
+                        svg{
+                          -webkit-transform:rotate(90deg);
+                          transform:rotate(90deg);
+                        }
 
-      }
+                      }
 
-      /* sort icon rotated -90 degrees for descending sort */
-      &.descending ng-md-icon>svg{
-        -webkit-transform:rotate(-90deg);
-        transform:rotate(-90deg);
-      }
+                      /* sort icon rotated -90 degrees for descending sort *
+                      &.descending ng-md-icon>svg{
+                        -webkit-transform:rotate(-90deg);
+                        transform:rotate(-90deg);
+                      }
 
-    }
+                    }
+                  }
+
+                  /* optional animation of sort icons: add class 'animate-sort-icon' to mdt-header-row to activate animation *
+                  thead tr.animate-sort-icon .sortedColumn ng-md-icon svg{
+                    -webkit-transition: 0.3s linear all;
+                    transition: 0.3s linear all;
+                  }
+  */
   }
-
-  /* optional animation of sort icons: add class 'animate-sort-icon' to mdt-header-row to activate animation */
-  thead tr.animate-sort-icon .sortedColumn ng-md-icon svg{
-    -webkit-transition: 0.3s linear all;
-    transition: 0.3s linear all;
-  }
-
 
   /* 64dp card header height */
   .mdt-header{
@@ -245,6 +269,17 @@
     justify-content: start;
     align-items: center;
   }
+
+  /**
+   * For material design icons
+   **/
+
+  /* Rules for sizing the icon. */
+  .material-icons.md-16 { font-size: 16px; }
+  .material-icons.md-18 { font-size: 18px; }
+  .material-icons.md-24 { font-size: 24px; }
+  .material-icons.md-36 { font-size: 36px; }
+  .material-icons.md-48 { font-size: 48px; }
 
   /* Rules for using icons as black on a light background. */
   .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }

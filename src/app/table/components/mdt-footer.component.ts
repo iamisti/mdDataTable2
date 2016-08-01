@@ -31,7 +31,7 @@ export class MdtFooter{
     }
 
     setPageSize(pageSize:number){
-        this.arrayPaginationService.setItemsPerPage(pageSize);
+        this.arrayPaginationService.setItemsPerPage(+pageSize);
     }
 
     nextPage(){

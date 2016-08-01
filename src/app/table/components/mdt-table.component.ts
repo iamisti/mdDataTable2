@@ -25,16 +25,21 @@ export class MdtTable{
     @Input('rows') rows: any;
     @Input('table-header') tableHeader: ITableHeader;
     @Input('pagination') pagination: IPagination;
+    @Input('sortable-columns') sortableColumns: boolean;
 
     tableFooter: ITableFooter;
 
-    constructor(protected dataService: DataService, protected arrayPaginationService: ArrayPaginationService){
+    constructor(protected dataService: DataService,
+                protected arrayPaginationService: ArrayPaginationService,
+                protected sortService: SortService){
 
     }
 
     ngOnInit(){
         this.dataService.addColumns(this.columns);
         this.dataService.addRows(this.rows);
+
+        this.sortService.setSortingEnabled(this.sortableColumns);
 
         this.tableFooter = {
             pagination: this.pagination || <IPagination>{}

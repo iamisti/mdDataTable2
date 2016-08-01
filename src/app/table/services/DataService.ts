@@ -6,6 +6,7 @@ import {AlignRule} from "../enums/AlignRule";
 import {Injectable} from "@angular/core";
 import {ArrayPaginationService} from "./ArrayPaginationService";
 import {SortService} from "./SortService";
+import {Column} from "../models/Column";
 
 @Injectable()
 export class DataService{
@@ -21,11 +22,13 @@ export class DataService{
 
     addColumns(columns:Array<IColumn>){
         _.each(columns, (aColumn) => {
-            this.columns.push({
-                dataKey: aColumn.dataKey,
-                name: aColumn.name,
-                align: aColumn.align || AlignRule.Left
-            });
+            let col = new Column();
+
+            col.dataKey = aColumn.dataKey;
+            col.name = aColumn.name;
+            col.align = aColumn.align || AlignRule.Left;
+
+            this.columns.push(col);
         });
     }
 
