@@ -160,4 +160,11 @@ export class AppComponent {
             }
         ];
     }
+/*
+    getPageCallback(pageNumber, pageSize){
+        return new Promise((resolve, reject) => {
+            resolve(this.rowList);
+        });
+    }
+*/
 }

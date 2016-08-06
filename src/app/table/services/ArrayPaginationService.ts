@@ -1,5 +1,4 @@
 import {IPaginationService} from "../interfaces/IPaginationService";
-import {IColumn} from "../interfaces/IColumn";
 import {IRow} from "../interfaces/IRow";
 import * as _ from "lodash";
 import {Injectable} from "@angular/core";
@@ -8,7 +7,6 @@ import {Injectable} from "@angular/core";
 export class ArrayPaginationService implements IPaginationService{
     itemsPerPage: number;
     page: number;
-    sortColumn: IColumn; //todo move it to sortservice
     totalRowsCount: number;
 
     constructor(){
