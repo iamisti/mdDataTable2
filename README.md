@@ -1,5 +1,11 @@
 # MdDataTable2
+This module is being developed, but not yet have a working version that could be used by others.
+Expected 1st release: 1st of September 2016.
 
+The project is based on the idea of [`md-data-table`](https://github.com/iamisti/mdDataTable)
+
+
+# Development
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
 
 ## Development server
