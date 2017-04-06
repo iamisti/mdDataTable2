@@ -1,6 +1,4 @@
-import { browser, element, by } from 'protractor';
-
-export class MigrationProjectPage {
+export class MdDataTable2Page {
   navigateTo() {
     return browser.get('/');
   }

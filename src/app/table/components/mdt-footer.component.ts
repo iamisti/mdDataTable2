@@ -2,10 +2,8 @@ import {Component, Input} from "@angular/core";
 import {ITableFooter} from "../interfaces/ITableFooter";
 import {ArrayPaginationService} from "../services/ArrayPaginationService";
 @Component({
-    moduleId: module.id,
     selector: 'mdt-footer',
     templateUrl: '../views/mdt-footer.html',
-    styleUrls: ['../main.css']
 })
 export class MdtFooter{
     @Input('table-footer')

@@ -6,11 +6,8 @@ import {IColumn} from "../interfaces/IColumn";
 import {SortService} from "../services/SortService";
 
 @Component({
-    moduleId: module.id,
     selector: '[mdt-columns]',
     templateUrl: '../views/mdt-columns.html',
-    styleUrls: ['../main.css'],
-    directives: [MdtCellAlign]
 })
 export class MdtColumns{
 
