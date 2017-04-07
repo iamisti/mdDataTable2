@@ -1,0 +1,285 @@
+  .md-whiteframe-z1{
+      background: #ffffff;
+  }
+
+  table{
+    font-size: 15px;
+    width:100%;
+
+    &:focus{
+      outline: none;
+    }
+  }
+  td, th{ padding: 0; margin: 0; }
+
+  $whiteColor: #ffffff;
+  $primaryColorPalette: #0D47A1;
+
+  /* 12sp Roboto Medium, 54% black */
+  th {
+    font-size: 12px;
+    font-weight: 500;
+    color: darken($whiteColor, 54%);
+    white-space: nowrap;
+    /* prevent ink ripple bleeding */
+    position: relative;
+
+    &.clickable {
+      cursor: pointer;
+    }
+
+    /* no pointer cursor when disabled, could be not-allowed but i think that indication is to strong */
+    &[disabled] {
+      cursor: auto;
+    }
+
+    /* remove the default blue outline in Chrome for consistent button-like behaviour */
+    &:focus {
+      outline: none;
+    }
+
+    &.sortable-column{
+      cursor: pointer;
+    }
+
+    /**
+     * Sort icons for columns
+     **/
+    &:hover{
+      .mdt-sort-icon{
+        visibility: visible;
+      }
+    }
+
+    .mdt-sort-icon{
+      visibility: hidden;
+      position:relative;
+      top: 4px;
+      color: darken($whiteColor, 30%);
+    }
+
+    .mdt-sort-icon-active{ color: darken($whiteColor, 87%); visibility: visible; }
+
+    /* when hoverSortIcons on a non-sorted column*/
+    /*
+                    .hoverSortIcons ng-md-icon{
+                      visibility: hidden;
+                      width: 16px;
+                      height: 16px;
+                      fill: darken($whiteColor, 30%);
+
+                      svg{
+                        -webkit-transform:rotate(90deg);
+                        transform:rotate(90deg);
+                      }
+                    }
+
+                    &:hover .hoverSortIcons ng-md-icon{
+                      visibility: visible;
+                    }
+
+                    .sortedColumn{
+                      /* when hoverSortIcons on a sorted column*
+                      .hoverSortIcons ng-md-icon{
+                        display:none;
+                      }
+
+                      ng-md-icon{
+                        /* specified 16px is a fix now cause angular materia generates a 24x24 icon even the passed value is 16  *
+                        width: 16px;
+                        height: 16px;
+
+                        fill: darken($whiteColor, 87%);
+
+                        /* sort icon rotated 90 degrees for ascending sort (default) *
+                        svg{
+                          -webkit-transform:rotate(90deg);
+                          transform:rotate(90deg);
+                        }
+
+                      }
+
+                      /* sort icon rotated -90 degrees for descending sort *
+                      &.descending ng-md-icon>svg{
+                        -webkit-transform:rotate(-90deg);
+                        transform:rotate(-90deg);
+                      }
+
+                    }
+                  }
+
+                  /* optional animation of sort icons: add class 'animate-sort-icon' to mdt-header-row to activate animation *
+                  thead tr.animate-sort-icon .sortedColumn ng-md-icon svg{
+                    -webkit-transition: 0.3s linear all;
+                    transition: 0.3s linear all;
+                  }
+  */
+  }
+
+  /* 64dp card header height */
+  .mdt-header{
+    height: 64px;
+    padding-left: 24px;
+    padding-right: 14px;
+
+    md-button{
+      margin-left: 24px;
+    }
+
+    ng-md-icon{
+      fill: darken($whiteColor, 54%);
+    }
+  }
+
+  .mdt-header-alternate{
+    @extend .mdt-header;
+
+    background-color: lighten($primaryColorPalette, 60%);
+
+    .alternate-text{
+      color: $primaryColorPalette;
+    }
+  }
+
+  /* 56do for last row */
+  .mdt-footer, tr th{
+    height: 56px;
+
+    .mdt-pagination{
+      font-size: 12px;
+      color: darken($whiteColor, 54%);
+
+      md-input-container{
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  /* column padding */
+  .checkboxCell{
+    width: 18px;
+
+    & md-checkbox{
+      margin: 0;
+      padding: 0;
+    }
+
+    /*the next cell should not have just 24px padding */
+    & + td, & + th {
+      padding-left: 24px;
+    }
+  }
+
+  /* 48dp row height */
+  /* 13sp Roboto Regular, 87% black */
+  tr td{
+    padding: 0;
+    height: 48px;
+    font-size: 13px;
+    color: darken($whiteColor, 87%);
+  }
+
+  td:first-child, th:first-child{
+    padding: 0 0 0 24px !important;
+  }
+
+  td:last-child, th:last-child{
+    padding-right: 24px !important;
+  }
+
+  .column{
+    padding-left: 56px;
+  }
+
+  .leftAlignedColumn{
+    text-align: left;
+  }
+
+  .rightAlignedColumn{
+    text-align: right;
+  }
+
+  /* border separation color */
+  tr th{
+    border-bottom: solid 1px #DDDDDD;
+  }
+
+  tr td{
+    border-bottom: solid 1px #DDDDDD;
+  }
+
+
+  /* INTERACTION */
+  tr:hover td{
+    background: #EEEEEE;
+  }
+
+  .selectedRow td{
+    background: #F5F5F5;
+  }
+
+  /* default icon color */
+  ng-md-icon{
+    fill: darken($whiteColor, 54%);
+  }
+
+  /* virtual repeat needed classes */
+  .virtualRepeatEnabled .originalHeader tr th{
+    height: 0px !important;
+    line-height: 0px !important;
+    margin:0px !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+
+  .virtualRepeatEnabled .originalHeader md-checkbox{
+    display: none;
+  }
+
+  /**
+   * Flexbox polifyls
+   *
+   **/
+
+  /*layout="row"*/
+  .layout-row{
+      display:flex;
+      flex-direction:row
+  }
+
+  .layout-column{
+    display:flex;
+    flex-direction:column
+  }
+
+  /*layout-align="center"*/
+  .layout-align-center{
+      align-items: center;
+  }
+
+  /*layout-align="start"*/
+  .layout-align-start{
+      justify-content: start;
+  }
+
+  /*layout-align="start"*/
+  .layout-align-start-center{
+    justify-content: start;
+    align-items: center;
+  }
+
+  /**
+   * For material design icons
+   **/
+
+  /* Rules for sizing the icon. */
+  .material-icons.md-16 { font-size: 16px; }
+  .material-icons.md-18 { font-size: 18px; }
+  .material-icons.md-24 { font-size: 24px; }
+  .material-icons.md-36 { font-size: 36px; }
+  .material-icons.md-48 { font-size: 48px; }
+
+  /* Rules for using icons as black on a light background. */
+  .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+  .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }

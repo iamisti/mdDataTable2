@@ -1,11 +1,9 @@
 import {Component} from '@angular/core';
-import {MdtTable, AlignRule} from "./table/components/mdt-table.component";
+import {AlignRule} from "./table/components/mdt-table.component";
 
 @Component({
-    moduleId: module.id,
     selector: 'app-root',
-    templateUrl: 'app.component.html',
-    directives: [MdtTable]
+    templateUrl: 'app.component.html'
 })
 export class AppComponent {
     rowList:Array<any>;

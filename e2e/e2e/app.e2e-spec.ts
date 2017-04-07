@@ -1,10 +1,10 @@
-import { MigrationProjectPage } from './app.po';
+import { MdDataTable2Page } from './app.po';
 
-describe('migration-project App', () => {
-  let page: MigrationProjectPage;
+describe('md-data-table2 App', function() {
+  let page: MdDataTable2Page;
 
   beforeEach(() => {
-    page = new MigrationProjectPage();
+    page = new MdDataTable2Page();
   });
 
   it('should display message saying app works', () => {
